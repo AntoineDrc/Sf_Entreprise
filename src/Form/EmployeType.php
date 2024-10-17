@@ -17,13 +17,13 @@ class EmployeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
+            ->add('nom', TextType::class, ['attr' => ['class' => 'form-control']])
+            ->add('prenom', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('dateNaissance', null, ['widget' => 'single_text',], DateType::class)
             ->add('dateEmbauche', null, ['widget' => 'single_text',], DateType::class)
-            ->add('ville', TextType::class)
-            ->add('entreprise', EntityType::class, ['class' => Entreprise::class,'choice_label' => 'id',], EntityType::class)
-            ->add('Valider', SubmitType::class)
+            ->add('ville', TextType::class, ['attr' => ['class' => 'form-control']])
+            ->add('entreprise', EntityType::class, ['class' => Entreprise::class,], EntityType::class)
+            ->add('Valider', SubmitType::class, ['attr' => ['class' => 'btn btn-primary']])
         ;
     }
 
