@@ -17,13 +17,36 @@ class EmployeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class, ['attr' => ['class' => 'form-control']])
-            ->add('prenom', TextType::class, ['attr' => ['class' => 'form-control']])
-            ->add('dateNaissance', null, ['widget' => 'single_text',], DateType::class)
-            ->add('dateEmbauche', null, ['widget' => 'single_text',], DateType::class)
-            ->add('ville', TextType::class, ['attr' => ['class' => 'form-control']])
-            ->add('entreprise', EntityType::class, ['class' => Entreprise::class,], EntityType::class)
-            ->add('Valider', SubmitType::class, ['attr' => ['class' => 'btn btn-primary']])
+            ->add('nom', TextType::class,
+                ['attr' => ['class' => 'form-control']])
+
+            ->add('prenom', TextType::class, 
+                ['attr' => ['class' => 'form-control']])
+
+            ->add('dateNaissance', DateType::class, 
+            [
+                'widget' => 'single_text',
+                'attr' => ['class' => 'form-control'],
+            ])
+
+            ->add('dateEmbauche', DateType::class, 
+            [
+                'widget' => 'single_text',
+                'attr' => ['class' => 'form-control'],
+            ])
+
+            ->add('ville', TextType::class, 
+                ['attr' => ['class' => 'form-control']])
+
+            ->add('entreprise', EntityType::class, 
+            [
+                'class' => Entreprise::class,
+                'attr' => ['class' => 'form-control']
+            ])
+                
+                
+            ->add('valider', SubmitType::class, 
+                ['attr' => ['class' => 'btn btn-primary']])
         ;
     }
 
